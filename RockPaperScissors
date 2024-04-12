@@ -1,0 +1,45 @@
+import random
+userWins = 0
+computerWins = 0
+options = ["rock", "paper", "scissors"]
+
+while True:
+    userInput = input("Type/Rock/Scissors/ Q to quite ").lower()
+    if userInput == "q":
+        break
+    if userInput not in options:
+        continue
+
+    randomNumber = random.randint(0, 2)
+    # rock is 0. paper is 1, scissors is 2
+    computerPick = options[randomNumber]
+    print("computer picked", computerPick)
+
+    if userInput == "rock" and computerPick == "scissors":
+        print("you won")
+        userWins += 1
+        continue
+
+    elif userInput == "paper" and computerPick == "rock":
+        print("you won")
+        userWins += 1
+
+    elif userInput == "scissors" and computerPick == "paper":
+        print("you won")
+        userWins += 1
+
+    elif userInput == "scissors" and computerPick == "scissors":
+        print("you tie")
+
+    elif userInput == "rock" and computerPick == "rock":
+        print("you tie")
+    elif userInput == "paper" and computerPick == "paper":
+        print("you won")
+
+
+    else:
+        print("you lost", '\n', "Computer wins")
+        computerWins +=1
+
+print("you won", userWins, "times", "\n", "the computer won", computerWins, "times ")
+print("goodbye")
